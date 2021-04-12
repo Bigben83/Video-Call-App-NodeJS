@@ -7,15 +7,14 @@ A conference call implementation using WebRTC, Socket.io and Node.js.
 - adapter.js
 - moment.min.js
 - FileSaver.js
-- 
 
 ## Included additional features
 - Whiteboard Share
 - Make more touch screen friendly
-- 
+- Doorbell feature to alert participants that you want to talk
 
 # Getting Started
-- Run `npm ci`
+- Run `npm install`
 - `cd src`
 - `node app.js`
 
@@ -30,10 +29,7 @@ A conference call implementation using WebRTC, Socket.io and Node.js.
 - Expand participants' stream
 - Screen Recording
 - Video Recording
-
- 
-# Demo
-You can test at https://chat.1410inc.xyz.
+- *Share Whiteboard between participants [new feature]
 
 
 # Note

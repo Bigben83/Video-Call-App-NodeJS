@@ -62,6 +62,7 @@ window.addEventListener( 'load', () => {
 
             //save the user's name in sessionStorage
             sessionStorage.setItem( 'username', yourName );
+            sessionStorage.setItem( 'roomName', roomName );
 
             //create room link
             let roomLink = `${ location.origin }?room=${ roomName.trim().replace( ' ', '_' ) }_${ helpers.generateRandomString() }`;
@@ -85,17 +86,18 @@ window.addEventListener( 'load', () => {
     document.getElementById( 'enter-room' ).addEventListener( 'click', ( e ) => {
         e.preventDefault();
 
-        let name = document.querySelector( '#username' ).value;
+        let yourName = document.querySelector( '#username' ).value;
 
-        if ( name ) {
+        if ( yourName ) {
             //remove error message, if any
             document.querySelector( '#err-msg-username' ).innerHTML = "";
 
             //save the user's name in sessionStorage
-            sessionStorage.setItem( 'username', name );
+            sessionStorage.setItem( 'username', yourName );
 
             //reload room
             location.reload();
+            
         }
 
         else {

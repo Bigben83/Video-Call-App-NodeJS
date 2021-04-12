@@ -25,6 +25,13 @@
         <script src='assets/js/autolink.js'></script>
         <script type="module" src='assets/js/rtc.js'></script>
         <script type="module" src='assets/js/events.js'></script>
+        
+        <!-- Whiteboard Script -->
+	    <script src="assets/js/whiteboard.js"></script>
+	    
+	    <!-- Additional Scripting -->
+	    <link rel="stylesheet" href="assets/css/style.css" />
+	    <script src='assets/js/additional.js'></script>
     </head>
 
     <body>
@@ -48,7 +55,7 @@
         </div>
         
         
-        <nav class="navbar fixed-top bg-info rounded-0 d-print-none">
+        <nav class="navbar fixed-top bg-info rounded-0 d-print-none sticky-top">
             <div class="text-white">Video Call</div>
 
             <div class="pull-right room-comm" hidden>
@@ -207,5 +214,76 @@
                 </div>
             </div>
         </div>
+        
+        <script type="text/javascript">
+    		// Tooltips Initialization
+    		$(function() {
+    			$('[data-toggle="tooltip"]').tooltip()
+    		})
+    
+    		function download() {
+    			var download = document.getElementById("download");
+    			var image = document.getElementById("whiteboard").toDataURL("image/jpg")
+    				.replace("image/jpg", "image/octet-stream");
+    			download.setAttribute("href", image);
+    			//download.setAttribute("download","archive.jpg");
+    		}
+    
+    		'use strict';
+    
+    		var wb1 = new Whiteboard('whiteboard', wb1_bufferHandler, {
+    			globalAlpha: 0.75
+    		});
+    
+    		function wb1_bufferHandler(buff, opt) {
+    			opt.strokeStyle = '#fff';
+    			opt.lineWidth = 1;
+    		}
+    
+    		function wb2_bufferHandler(buff, opt) {
+    			gradient.addColorStop('0', 'magenta');
+    			gradient.addColorStop('0.25', 'blue');
+    			gradient.addColorStop('0.50', 'red');
+    			gradient.addColorStop('0.75', 'yellow');
+    			gradient.addColorStop('1', 'green');
+    
+    			opt.strokeStyle = gradient;
+    			wb1.draw(buff, opt);
+    			opt.lineWidth = 30;
+    		}
+    	</script>
+    	
+    	<script type="text/javascript">
+    		//Show time over video
+            function checkTime(i) {
+            	if (i < 10) {
+            		i = "0" + i;
+            	}
+            	return i;
+            }
+            
+            function startTime() {
+            	var today = new Date();
+            	var h = today.getHours();
+            	var m = today.getMinutes();
+            	var s = today.getSeconds();
+            	var ampm = h >= 12 ? 'PM' : 'AM';
+            	h = h % 12;
+            	h = h ? h : 12; // the hour ’0′ should be ’12′
+            	// add a zero in front of numbers<10
+            	m = checkTime(m);
+            	s = checkTime(s);
+            	document.getElementById('datetime').innerHTML = h + ":" + m + ' ' + ampm;
+            	//document.getElementById('remote-time').innerHTML = h + ":" + m+ ' ' + ampm;
+            	t = setTimeout(function() {
+            		startTime()
+            	}, 500);
+            }
+            startTime();
+            
+            document.getElementById('session-title').innerHTML = sessionStorage.getItem('roomName');
+            document.getElementById('session-name').innerHTML = sessionStorage.getItem('username');
+            
+    	</script>
     </body>
 </html>

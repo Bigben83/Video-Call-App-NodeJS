@@ -111,14 +111,14 @@ export default {
         return {
             iceServers: [
                 {
-                    urls: ["stun:eu-turn4.xirsys.com"]
+                    urls: ["stun:cloudalarms.net"]
                 },
                 {
-                    username: "ml0jh0qMKZKd9P_9C0UIBY2G0nSQMCFBUXGlk6IXDJf8G2uiCymg9WwbEJTMwVeiAAAAAF2__hNSaW5vbGVl",
-                    credential: "4dd454a6-feee-11e9-b185-6adcafebbb45",
+                    username: "userTurn",
+                    credential: "EaT5dcFY2",
                     urls: [
-                        "turn:eu-turn4.xirsys.com:80?transport=udp",
-                        "turn:eu-turn4.xirsys.com:3478?transport=tcp"
+                        "turn:cloudalarms.net:3478?transport=udp",
+                        "turn:cloudalarms.net:3478?transport=tcp"
                     ]
                 }
             ]
@@ -218,16 +218,18 @@ export default {
 
 
     singleStreamToggleMute( e ) {
-        if ( e.target.classList.contains( 'fa-microphone' ) ) {
+        if ( e.target.classList.contains( 'p-2', 'fa-microphone' ) ) {
             e.target.parentElement.previousElementSibling.muted = true;
-            e.target.classList.add( 'fa-microphone-slash' );
-            e.target.classList.remove( 'fa-microphone' );
+            e.target.classList.add( 'py-2', 'fa-microphone-slash' );
+            e.target.classList.remove( 'p-2', 'fa-microphone' );
+            document.getElementById('audio-status').innerHTML = "Your Audio is on";
         }
 
         else {
             e.target.parentElement.previousElementSibling.muted = false;
-            e.target.classList.add( 'fa-microphone' );
-            e.target.classList.remove( 'fa-microphone-slash' );
+            e.target.classList.add( 'p-2', 'fa-microphone' );
+            e.target.classList.remove( 'py-2', 'fa-microphone-slash' );
+            document.getElementById('audio-status').innerHTML = "Your Audio is off";
         }
     },
 

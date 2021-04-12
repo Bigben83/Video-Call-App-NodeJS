@@ -398,17 +398,19 @@ window.addEventListener( 'load', () => {
             let elem = document.getElementById( 'toggle-mute' );
 
             if ( myStream.getAudioTracks()[0].enabled ) {
-                e.target.classList.remove( 'fa-microphone-alt' );
-                e.target.classList.add( 'fa-microphone-alt-slash' );
+                e.target.classList.remove( 'p-2', 'fa-microphone' );
+                e.target.classList.add( 'py-2', 'fa-microphone-slash' );
                 elem.setAttribute( 'title', 'Unmute' );
+                document.getElementById('audio-status').innerHTML = "Your Audio is off";
 
                 myStream.getAudioTracks()[0].enabled = false;
             }
 
             else {
-                e.target.classList.remove( 'fa-microphone-alt-slash' );
-                e.target.classList.add( 'fa-microphone-alt' );
+                e.target.classList.remove( 'py-2', 'fa-microphone-slash' );
+                e.target.classList.add( 'p-2', 'fa-microphone' );
                 elem.setAttribute( 'title', 'Mute' );
+                document.getElementById('audio-status').innerHTML = "Your Audio is on";
 
                 myStream.getAudioTracks()[0].enabled = true;
             }

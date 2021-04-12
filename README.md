@@ -1,6 +1,18 @@
-# Conference Call
+# Simple Video Conference Call
 A conference call implementation using WebRTC, Socket.io and Node.js.
 
+## Updated the following
+- latest version of Bootstrap
+- socket.io.js
+- adapter.js
+- moment.min.js
+- FileSaver.js
+- 
+
+## Included additional features
+- Whiteboard Share
+- Make more touch screen friendly
+- 
 
 # Getting Started
 - Run `npm ci`

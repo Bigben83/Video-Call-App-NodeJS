@@ -14,10 +14,11 @@ A conference call implementation using WebRTC, Socket.io and Node.js.
 - Doorbell feature to alert participants that you want to talk
 
 # Getting Started
-- Run `npm install`
-- `cd src`
-- `node app.js`
-
+- Clone the repo
+- Change the port the app is listening on (optional)
+- run `npm install`. Of course, you must have node and npm installed on your server.
+- Ensure your domain has SSL.
+- Access the app with a browser.
 
 # Features
 - Multi-participants
